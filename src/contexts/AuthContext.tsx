@@ -4,15 +4,18 @@ import { createContext, ReactNode, useState } from "react"
 import UsuarioLogin from "../models/UsuarioLogin"
 import { login } from "../services/Service"
 
-interface AuthContextProps{ //propriedades da context 
+//propriedades da context que serão compartilhadas com toda aplicação e consumidas pelo consumidor 
+interface AuthContextProps{ 
     usuario: UsuarioLogin //estado usuario
-    handleLogin(usuario: UsuarioLogin): Promise<void> //responsavel por fazer o login
+    handleLogin(usuario: UsuarioLogin): Promise<void> // método responsavel por fazer o login
     handleLogout(): void // deslogar
     isLoading: boolean // estado
+
 }
 
+// Usado para criar o provedor de conteudos - quem vai ter acesso ao contexto 
 interface AuthProviderProps{
-    children: ReactNode // representa qualquer componente react que pode ser renderizada - usado para criar o provedor de conteudos
+    children: ReactNode  //representa qualquer componente react que pode ser renderizada -
 }
 
  //Cria nova instancia da API Context
@@ -61,7 +64,7 @@ function handleLogout(){
 }
 
   return (
-    //Renderiza a Context na aplicação React
+    //Renderiza o componente Context com o provedor definido na aplicação React - envolve o app e terá acesso a todos estados e funções dentro da interface
     <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading }}> {/* dentro do value, deixa todos os valores que serao usados nos filhos */}
         {children} 
     </AuthContext.Provider>

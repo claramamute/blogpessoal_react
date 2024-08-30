@@ -7,6 +7,9 @@ import Home from './pages/home/Home'
 import Cadastro from './pages/cadastro/Cadastro'
 import Login from './pages/login/Login'
 import { AuthProvider } from './contexts/AuthContext'
+import ListarTemas from './components/temas/listatemas/ListarTemas'
+import FormTema from './components/temas/formtema/FormTema'
+import DeletarTema from './components/temas/deletartema/DeletarTema'
 
 
 function App() {
@@ -21,10 +24,14 @@ function App() {
         <Navbar />
         <div className= 'min-h-[80vh]'>
           <Routes>
-            <Route path='/' element={<Cadastro/>} />
+            <Route path='/' element={<Login/>} />
             <Route path= '/login' element={<Login/>} />
             <Route path='/cadastro' element={<Cadastro/>} />
             <Route path='/home' element={<Home/>} /> {/* adiciona o componente (que é independente) home no principal */}
+            <Route path="/temas" element={<ListarTemas />} />
+            <Route path="/cadastrartema" element={<FormTema />} />
+            <Route path="/editartema/:id" element={<FormTema />} />
+            <Route path="/deletartema/:id" element={<DeletarTema />} />
           </Routes>
         </div>
         <Footer />

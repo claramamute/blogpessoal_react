@@ -141,7 +141,7 @@ function Cadastro() {
             <button  type='submit' className="w-1/2 border-2 py-2 bg-red-400 text-white  hover:bg-red-700 " 
             onClick={retornar}>Cancelar</button>
             
-            <button  type='submit' className="w-1/2 border-2 py-2 bg-indigo-400 text-white justify-center hover:bg-indigo-900">
+            <button  type='submit' className="w-1/2 border-2 py-2 bg-indigo-400 text-white  flex justify-center hover:bg-indigo-900">
             {isLoading ? <RotatingLines strokeColor="white"strokeWidth="5"animationDuration="0.75"width="24"visible={true}/> :
                     <span>Cadastrar</span>}
             </button>

@@ -17,7 +17,7 @@ function Login() {
 
   
   //acessar conteudo da context
-  const { usuario, handleLogin, isLoading } = useContext(AuthContext) // hook que consome o conteudo da context
+  const { usuario, handleLogin, isLoading } = useContext(AuthContext) // hook que consome o conteudo da context - desestruturação ( pega apenas o que precisa)
   
   useEffect(()=> {
     if(usuario.token !== ''){ // se o token ter valor, significa que ele esta autenticado
@@ -46,19 +46,21 @@ function Login() {
             <h2 className="text-slate-900 text-5xl">Entrar</h2>
             <div className="flex flex-col w-full">
                 <label htmlFor="usuario">Usuario</label>
-                <input type="text" id="usuario" name="usuario" placeholder="Usuario"  className="border-2 border-slate-700 rounded p-2 mb-4" value={usuarioLogin.usuario}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)} />
+                <input type="text" id="usuario" name="usuario" placeholder="Usuario"  className="border-2 border-slate-700 rounded p-2 mb-4" 
+                value={usuarioLogin.usuario}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)} />
 
 
                 <label htmlFor="senha">Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="Senha" className="border-2 border-slate-700 rounded p-2 mb-4" value={usuarioLogin.senha}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
+                <input type="password" id="senha" name="senha" placeholder="Senha" className="border-2 border-slate-700 rounded p-2 mb-4" 
+                value={usuarioLogin.senha}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
 
             </div>
             <div className=" flex gap-6 w-full justify-center">
-                <button  type='submit' className="w-1/2 border-2 py-2 bg-indigo-400 text-white  hover:bg-indigo-900 rounded">
-                {isLoading ? <RotatingLines strokeColor="white"strokeWidth="5"animationDuration="0.75"width="24"visible={true}/> :
-                            <span>Entrar</span>}
+                <button  type='submit' className="w-1/2 border-2 py-2 bg-indigo-400 text-white flex  justify-center  hover:bg-indigo-900 rounded">
+                  {isLoading ? <RotatingLines strokeColor="white"strokeWidth="5"animationDuration="0.75"width="24"visible={true}/> :
+                              <span>Entrar</span>}
                 </button>
             </div>
             <hr className="border-slate-800 w-full" />
