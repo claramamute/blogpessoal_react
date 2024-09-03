@@ -64,6 +64,7 @@ function handleLogout(){
 }
 
   return (
+    // toda a aplicação é servida pela authcontext
     //Renderiza o componente Context com o provedor definido na aplicação React - envolve o app e terá acesso a todos estados e funções dentro da interface
     <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading }}> {/* dentro do value, deixa todos os valores que serao usados nos filhos */}
         {children} 

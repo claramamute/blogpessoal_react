@@ -1,6 +1,10 @@
+import ListaPostagem from "../../components/postagem/listapostagem/ListaPostagem"
+import ModalPostagem from "../../components/postagem/modalpostagem/ModalPostagem"
+
 //rfce -> gera o componente automaticamente
 function Home() {
   return (
+    <>
     <div className="
     bg-indigo-900
     flex
@@ -29,19 +33,22 @@ function Home() {
               Expresse aqui seus pensamentos e opiniões
             </p>
 
+
             <div className="flex justify-around gap-4">
-
-              <div className="rounded border-white border-solid border-2 py-2 px-4">
-                Nova Postagem 
-              </div>
-
+              <ModalPostagem />
+              <button className='rounded bg-white text-blue-800 py-2 px-4'>Ver postagens</button>
             </div>
+
         </div>
         <div  >
             <img src="https://i.imgur.com/VpwApCU.png" alt="Imagem página home" className="w-2/3 "/>
         </div>
+        
       </div>
+      
     </div>
+    <ListaPostagem/>
+    </>
   )
 }
 

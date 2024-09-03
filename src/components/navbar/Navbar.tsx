@@ -25,10 +25,10 @@ function Navbar() {
         </div>
         <div>
           <ul className="flex flex-row gap-4">
-            <li className="hover:underline">Postagens</li>
+            <li className="hover:underline"><Link to='/postagens' className='hover:underline'>Postagens</Link></li>
             <li className="hover:underline"><Link to='/temas'>Temas </Link></li>
             <li className="hover:underline"><Link to='/cadastrartema'>Cadastrar Tema </Link></li>
-            <li className="hover:underline">Perfil</li>
+            <li className="hover:underline"><Link to='/perfil' className='hover:underline'>Perfil</Link></li>
             <li className="hover:underline"><Link to='' onClick={logout} className="hover:underline">
                         Sair
                       </Link>
