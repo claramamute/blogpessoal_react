@@ -4,6 +4,7 @@ import AuthContext from "../../../contexts/AuthContext"
 import Tema from "../../../models/Tema"
 import { consultar, deletar } from "../../../services/Service"
 import { RotatingLines } from "react-loader-spinner"
+import { ToastAlerta } from "../../../utils/ToastAlerta"
 
 function DeletarTema() {
     const navigate = useNavigate()
@@ -60,10 +61,10 @@ function DeletarTema() {
                 }
             })
 
-            alert('Tema apagado com sucesso')
+            ToastAlerta('O Tema foi apagado com sucesso!', 'sucesso')
 
         } catch (error) {
-            alert('Erro ao apagar o Tema')
+            ToastAlerta('Erro ao Excluir o Tema!', 'erro')
         }
         setIsLoading(false)
         retornar()

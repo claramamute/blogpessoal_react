@@ -3,6 +3,7 @@
 import { createContext, ReactNode, useState } from "react"
 import UsuarioLogin from "../models/UsuarioLogin"
 import { login } from "../services/Service"
+import { ToastAlerta } from "../utils/ToastAlerta"
 
 //propriedades da context que serão compartilhadas com toda aplicação e consumidas pelo consumidor 
 interface AuthContextProps{ 
@@ -42,8 +43,7 @@ export function AuthProvider({children}: AuthProviderProps) {
     try{
 
         await login('/usuarios/logar', usuarioLogin, setUsuario) // caminho da requisicao,  dados do forms, qual estado vai mudar (usuario)
-        alert('Usuario autenticado com sucesso!')
-
+        ToastAlerta("Usuário autenticado com sucesso!", "sucesso")
     } catch(error){
         alert('Os dados estão incosistentes')
     }

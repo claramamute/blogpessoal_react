@@ -14,6 +14,7 @@ import ListaPostagem from './components/postagem/listapostagem/ListaPostagem'
 import FormularioPostagem from './components/postagem/formpostagem/FormularioPostagem'
 import DeletarPostagem from './components/postagem/deletapostagem/DeletarPostagem'
 import Perfil from './pages/perfil/Perfil'
+import { ToastContainer } from 'react-toastify'
 
 
 function App() {
@@ -24,9 +25,11 @@ function App() {
    //Colocar um fragment (englose tag fantasma) div fantasma - se tiver mais de um elemento num componente
    <> 
    <AuthProvider> {/* disponibiliza os 2 estados (usuario e isloading) e a login e logout para todos esses componentes */}
+    <ToastContainer />
     <BrowserRouter>
         <Navbar />
         <div className= 'min-h-[80vh]'>
+          
           <Routes>
             <Route path='/' element={<Login/>} />
             <Route path= '/login' element={<Login/>} />

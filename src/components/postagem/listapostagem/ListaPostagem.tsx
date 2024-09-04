@@ -4,6 +4,7 @@ import Postagem from "../../../models/Postagem";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../contexts/AuthContext";
 import { consultar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListaPostagem() {
  
@@ -27,7 +28,7 @@ function ListaPostagem() {
 
     } catch (error: any){
       if (error.toString().includes('401')) {
-        alert('O token expirou, favor logar novamente')
+        ToastAlerta('Você precisa estar logado', 'info')
         handleLogout()
       }
     }
@@ -41,7 +42,7 @@ function ListaPostagem() {
   useEffect(()=>{
     if(token === ''){
       if (token === '') {
-        alert('Você precisa estar logado');
+        ToastAlerta('Você precisa estar logado', 'info')
         navigate('/');
       }
     }

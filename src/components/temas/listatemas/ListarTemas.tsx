@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react"
 import AuthContext from "../../../contexts/AuthContext"
 import { consultar } from "../../../services/Service"
 import { DNA } from "react-loader-spinner"
+import { ToastAlerta } from "../../../utils/ToastAlerta"
 
 function ListarTemas() {
 
@@ -40,7 +41,7 @@ function ListarTemas() {
     //Checar o token, ver se eleainda é válido, se não for, redireciona para o login
     useEffect(() =>{
       if(token === ''){ //user desconectado
-          alert('Você precisa estar logado!')
+          ToastAlerta('Você precisa estar logado!', 'info')
           navigate('/')
       }
     }, [token])
