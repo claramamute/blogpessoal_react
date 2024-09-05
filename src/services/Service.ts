@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create( //criando nova instancia da lib axios e, conseguimos ter acesso aos métodos dele para aconsumir a API
     {
-        baseURL: "https://blogpessoal-aef8.onrender.com",
+        baseURL: import.meta.env.VITE_API_URL
     }
 )
 
